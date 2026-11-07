@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suffian & Tehreem: a friendship celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F9F6; --surface:#FFFFFF; --ink:#173A3A; --muted:#4F6B68; --teal:#0F4C4C; --teal2:#1B6B66;
+  --lilac:#B9A7E0; --gold:#D9A441; --mist:#DCEBE4; --line:#C9DCD3; --onteal:#F3FAF6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1F20; --surface:#122D2E; --ink:#E6F2EC; --muted:#A5C0BA; --teal:#0A3536; --teal2:#2E8F87;
+    --lilac:#A894D6; --gold:#E3B04B; --mist:#183B3A; --line:#24494A; --onteal:#F3FAF6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1F20; --surface:#122D2E; --ink:#E6F2EC; --muted:#A5C0BA; --teal:#0A3536; --teal2:#2E8F87;
+  --lilac:#A894D6; --gold:#E3B04B; --mist:#183B3A; --line:#24494A; --onteal:#F3FAF6;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-size:1.05rem;line-height:1.65}
+h1,h2{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.15;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:880px;margin:0 auto;padding:0 1.25rem}
+
+/* hero */
+.hero{background:var(--teal);color:var(--onteal);position:relative;overflow:hidden;padding:4.5rem 0 5rem;text-align:center}
+.hero::before{content:"";position:absolute;inset:-40%;opacity:.12;
+  background:
+   repeating-conic-gradient(from 0deg at 50% 50%, #fff 0 5deg, transparent 5deg 15deg);
+  -webkit-mask:radial-gradient(circle,#000 0,transparent 60%);mask:radial-gradient(circle,#000 0,transparent 60%)}
+.hero .wrap{position:relative}
+.bismillah{font-family:"Amiri",serif;font-size:1.6rem;color:var(--gold);margin-bottom:.8rem}
+.hero h1{font-size:clamp(2.4rem,9vw,4.6rem)}
+.hero p.sub{max-width:34rem;margin:1.2rem auto 0;color:#CFE5DD;font-size:1.15rem}
+
+/* molecule */
+.lab{padding:3.5rem 0 1rem}
+.lab h2,.formula h2,.wishes h2,.smile h2{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:.6rem}
+.lab .lead,.formula .lead{color:var(--muted);max-width:34rem}
+.mol{display:grid;gap:1.5rem;align-items:center;margin-top:1.5rem}
+@media(min-width:760px){.mol{grid-template-columns:1fr 1fr}}
+svg.molecule{width:100%;max-width:400px;height:auto;margin:0 auto;display:block;overflow:visible}
+.bond{stroke:var(--line);stroke-width:3}
+.atom{cursor:pointer;outline:none}
+.atom circle{fill:var(--mist);stroke:var(--teal2);stroke-width:2.5;transition:fill .2s,transform .2s;transform-box:fill-box;transform-origin:center}
+.atom text{fill:var(--ink);font:700 12.5px "Nunito",sans-serif;text-anchor:middle;pointer-events:none}
+.atom:hover circle,.atom:focus-visible circle{fill:var(--lilac)}
+.atom.on circle{fill:var(--gold);transform:scale(1.12)}
+.atom:focus-visible circle{stroke-width:5}
+.core circle{fill:var(--teal);stroke:var(--gold);stroke-width:3}
+.core text{fill:var(--onteal);font:400 15px "Young Serif",serif}
+.msg{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:1.4rem 1.5rem;min-height:11rem}
+.msg h3{font-family:"Young Serif",serif;font-weight:400;font-size:1.4rem;margin:0 0 .5rem}
+.msg p{margin:0;color:var(--muted)}
+.msg .hint{font-size:.95rem}
+
+/* formula */
+.formula{padding:3.5rem 0 1rem}
+.eq{margin-top:1.4rem;background:var(--teal);color:var(--onteal);border-radius:24px;padding:1.8rem 1.4rem;text-align:center}
+.eq .line{font-family:"Young Serif",serif;font-size:clamp(1.1rem,3.6vw,1.7rem);display:flex;flex-wrap:wrap;gap:.5rem .8rem;justify-content:center;align-items:center}
+.eq .arrow{color:var(--gold);font-size:1.5em;line-height:1}
+.eq .cond{margin:1rem 0 0;color:#CFE5DD;font-size:.98rem}
+.eq .ok{display:inline-block;margin-top:.8rem;border:1.5px solid var(--gold);color:var(--gold);border-radius:99px;padding:.15rem .9rem;font-weight:700;font-size:.95rem}
+
+/* wishes */
+.wishes{padding:3.5rem 0 1rem}
+.grid{display:grid;gap:1rem;margin-top:1.3rem}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:1.3rem 1.4rem}
+.card:nth-child(even){border-radius:18px 40px 18px 40px}
+.card:nth-child(odd){border-radius:40px 18px 40px 18px}
+.card h3{font-family:"Young Serif",serif;font-weight:400;font-size:1.2rem;margin:0 0 .4rem}
+.card p{margin:0;color:var(--muted)}
+.dua{margin:1.6rem 0 0;text-align:center;background:var(--mist);border-radius:20px;padding:1.5rem 1rem}
+.dua .ar{font-family:"Amiri",serif;font-size:2rem;color:var(--teal2);line-height:1.6}
+.dua p{margin:.2rem 0 0;color:var(--muted)}
+
+/* smile */
+.smile{padding:3.5rem 0 4rem;text-align:center}
+.smile p{color:var(--muted);max-width:30rem;margin:0 auto 1.4rem}
+button.send{font:700 1.1rem "Nunito",sans-serif;background:var(--gold);color:#1F2A1F;border:0;border-radius:99px;padding:.9rem 2rem;cursor:pointer;transition:transform .15s}
+button.send:active{transform:scale(.96)}
+button.send:focus-visible{outline:3px solid var(--lilac);outline-offset:3px}
+.count{margin-top:1rem;font-weight:700;color:var(--teal2)}
+.float{position:fixed;pointer-events:none;font-size:1.6rem;animation:up 1.6s ease-out forwards;z-index:5}
+@keyframes up{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-140px)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none;opacity:0}.atom circle{transition:none}}
+
+footer{background:var(--teal);color:#CFE5DD;text-align:center;padding:2.2rem 1.25rem}
+footer strong{font-family:"Young Serif",serif;font-weight:400;color:var(--gold);font-size:1.2rem}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="bismillah" lang="ar" dir="rtl">بِسْمِ اللهِ</div>
+    <h1>Suffian & Tehreem</h1>
+    <p class="sub">A celebration of the friendship between Suffian and Tehreem Tahir: new on the calendar, but in a very short time it started to feel like a lifelong one.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="lab" aria-labelledby="lab-h">
+    <h2 id="lab-h">The Tehreem molecule</h2>
+    <p class="lead">You study chemistry, so here is how I see you: one bright centre, held together by six things I admire. Tap each one.</p>
+    <div class="mol">
+      <svg class="molecule" id="mol" viewBox="0 0 400 400" role="group" aria-label="Molecule of Tehreem’s qualities"></svg>
+      <div class="msg" id="msg" aria-live="polite">
+        <h3>Start anywhere</h3>
+        <p class="hint">Pick an atom to read what it means to me.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="formula" aria-labelledby="f-h">
+    <h2 id="f-h">How our friendship formed</h2>
+    <p class="lead">Every good reaction needs the right ingredients. Ours looks like this.</p>
+    <div class="eq">
+      <div class="line">
+        <span>Tehreem</span><span>+</span><span>Suffian</span><span>+</span><span>good conversations</span>
+        <span class="arrow" aria-hidden="true">→</span>
+        <span>one real friendship</span><span>+</span><span>lots of smiles</span>
+      </div>
+      <p class="cond">Catalyst: sincerity. Heat required: none. Reaction time: surprisingly fast.</p>
+      <span class="ok">Balanced and complete</span>
+    </div>
+  </section>
+
+  <section class="wishes" aria-labelledby="w-h">
+    <h2 id="w-h">My wishes for you</h2>
+    <div class="grid">
+      <div class="card"><h3>For your studies</h3><p>May your MPhil go smoothly, your experiments work on the first try, and your hard work be rewarded with success.</p></div>
+      <div class="card"><h3>For your heart</h3><p>May your eyes stay as bright and hopeful as they are today, whatever the year brings.</p></div>
+      <div class="card"><h3>For your faith</h3><p>May your faith keep growing and keep guiding you, and may every step you take be full of barakah.</p></div>
+      <div class="card"><h3>For our friendship</h3><p>May it stay honest, kind and easy, and may we always be there for each other.</p></div>
+    </div>
+    <div class="dua">
+      <div class="ar" lang="ar" dir="rtl">بَارَكَ اللهُ فِيكِ وَجَزَاكِ اللهُ خَيْرًا</div>
+      <p>May Allah bless you, and reward you with goodness.</p>
+    </div>
+  </section>
+
+  <section class="smile" aria-labelledby="s-h">
+    <h2 id="s-h">One more thing</h2>
+    <p>Thank you for being a kind, smart and genuine friend, and for making this friendship what it is. If this made you smile, send one back.</p>
+    <button class="send" id="send" type="button">Send a smile</button>
+    <div class="count" id="count" aria-live="polite"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Made to celebrate the friendship of Suffian and Tehreem Tahir.</p>
+  <strong>Your friend, Suffian</strong>
+</footer>
+
+<script>
+(function(){
+  var data=[
+    ["Hope","Your eyes are bright and full of hope. Around you, even a hard day feels like it can turn around."],
+    ["Faith","Your faith is steady and sincere, and it shows in how you treat people: with patience and respect."],
+    ["Brilliance","An MPhil in Chemistry is no small thing. You are smart and you work hard, and I’m proud to know you."],
+    ["Kindness","Our friendship is new, but you made space for me the way an old friend would."],
+    ["Grace","You carry yourself with a quiet grace and modesty that people notice without you saying a word."],
+    ["Joy","Your smile and your laugh make ordinary chats feel like the best part of the day."]
+  ];
+  var NS="http://www.w3.org/2000/svg", svg=document.getElementById("mol"), msg=document.getElementById("msg");
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+  var cx=200,cy=200,R=135,atoms=[];
+  data.forEach(function(d,i){
+    var ang=(-90+i*60)*Math.PI/180, x=cx+R*Math.cos(ang), y=cy+R*Math.sin(ang);
+    svg.appendChild(el("line",{x1:cx,y1:cy,x2:x,y2:y,class:"bond"}));
+    var nx=cx+R*Math.cos(ang+Math.PI/3), ny=cy+R*Math.sin(ang+Math.PI/3);
+    svg.appendChild(el("line",{x1:x,y1:y,x2:nx,y2:ny,class:"bond"}));
+  });
+  data.forEach(function(d,i){
+    var ang=(-90+i*60)*Math.PI/180, x=cx+R*Math.cos(ang), y=cy+R*Math.sin(ang);
+    var g=el("g",{class:"atom",tabindex:"0",role:"button","aria-label":d[0]});
+    g.appendChild(el("circle",{cx:x,cy:y,r:38}));
+    var t=el("text",{x:x,y:y+4.5});t.textContent=d[0];g.appendChild(t);
+    function pick(){
+      atoms.forEach(function(a){a.classList.remove("on")});g.classList.add("on");
+      msg.innerHTML="";var h=document.createElement("h3");h.textContent=d[0];
+      var p=document.createElement("p");p.textContent=d[1];msg.appendChild(h);msg.appendChild(p);
+    }
+    g.addEventListener("click",pick);
+    g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick()}});
+    atoms.push(g);svg.appendChild(g);
+  });
+  var core=el("g",{class:"core"});
+  core.appendChild(el("circle",{cx:cx,cy:cy,r:52}));
+  var ct=el("text",{x:cx,y:cy+5});ct.textContent="Tehreem";core.appendChild(ct);svg.appendChild(core);
+
+  var n=0,btn=document.getElementById("send"),out=document.getElementById("count"),icons=["😊","✨","🌙","🌸","💛"];
+  btn.addEventListener("click",function(e){
+    n++;out.textContent=n===1?"1 smile sent":n+" smiles sent";
+    var f=document.createElement("span");f.className="float";f.textContent=icons[n%icons.length];
+    var r=btn.getBoundingClientRect();f.style.left=(r.left+r.width/2+(Math.random()*80-40))+"px";f.style.top=(r.top-10)+"px";
+    document.body.appendChild(f);setTimeout(function(){f.remove()},1700);
+  });
+})();
+</script>
+</body>
+</html>
